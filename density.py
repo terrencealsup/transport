@@ -27,12 +27,8 @@ X = sample_ref(N)
 
 w0 = np.random.randn(9)#np.array([0., 10., 1., 1., 1., 10., 0., 1., 1.])
 
-[w, f, g] = minimize_chisq(w0, X, p, b, 1e-3, 1000)
+[w, f, g] = minimize_chisq(w0, X, p, b, 1e-3, 4000)
 
-plt.figure(1)
-plt.plot(f)
-
-plt.figure(2)
-plt.plot(g)
-
-plt.show()
+pickle.dump(w, open('weights.p', 'wb'))
+pickle.dump(f, open('obj_vals.p', 'wb'))
+pickle.dump(g, open('gnorm.p', 'wb'))
